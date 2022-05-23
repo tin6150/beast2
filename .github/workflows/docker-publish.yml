@@ -17,7 +17,7 @@ on:
     tags: [ 'v*.*.*', 'base*' ]
   pull_request:
     ##branches: [ main ]
-    branches: [ main, integration, base ]
+    branches: [ master, tin ]
 
 
 env:
