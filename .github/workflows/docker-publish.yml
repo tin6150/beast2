@@ -1,19 +1,28 @@
-name: Docker
+name: docker-publish
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
 
+## 2022.0530.  maybe this need to be in the master branch (this content not pushed there yet)
+## container at 
+## docker pull                       ghcr.io/tin6150/beast2:master
+## docker run  -it                   ghcr.io/tin6150/beast2:master   # it does a build (which failed in ssh to domingo)
+
 on:
-  schedule:
-    - cron: '24 0 * * *'
+  #schedule:
+  #  - cron: '38 7 * * *'
   push:
-    branches: [ master ]
+    ##branches: [ main ]
+    ##branches: [ main, integration, base ]
+    branches: [ master, tin ]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    tags: [ 'v*.*.*', 'base*' ]
   pull_request:
-    branches: [ master ]
+    ##branches: [ main ]
+    branches: [ master, tin ]
+
 
 env:
   # Use docker.io for Docker Hub if empty
