@@ -16,12 +16,12 @@ on:
   push:
     ##branches: [ main ]
     ##branches: [ main, integration, base ]
-    branches: [ master, tin ]
+    branches: [ master, tin, 'dock*' ]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*', 'base*' ]
+    tags: [ 'v*', 'r*', 'dock*' ]
   pull_request:
     ##branches: [ main ]
-    branches: [ master, tin ]
+    branches: [ master, tin, 'dock*' ]
 
 
 env:
