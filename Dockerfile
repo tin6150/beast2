@@ -2,11 +2,6 @@
 # manual build, mostly:
 # docker build -f Dockerfile .  | tee LOG.Dockerfile.txt
 
-LABEL Source1="https://github.com/CompEvol/beast2"
-LABEL Source2="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions"
-LABEL Source3="https://hub.docker.com/r/nvidia/cuda/tags?page=1&name=11.4.2-devel-ubuntu"
-
-
 ## FROM debian:bullseye ## used by r* for OS package without beagle lib for gpu
 ## FROM nvidia/cuda:11.7.1-devel-ubuntu22.04  # hung A5000 with cuda 11.4/centos 7.9 (b15)
 ## FROM nvidia/cuda:11.2.1-devel-ubuntu18.04  # n0005 CUDA 11.2 >>  wrong opencl-icd
@@ -15,7 +10,15 @@ FROM nvidia/cuda:11.4.2-devel-ubuntu20.04
 #?? FROM nvidia/cuda:11.4.0-devel-centos7
 # default aka :latest no longer supported.  https://hub.docker.com/r/nvidia/cuda
 
-MAINTAINER Tin(at)berkeley.edu
+
+LABEL Source1="https://github.com/CompEvol/beast2"
+LABEL Source2="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions"
+LABEL Source3="https://hub.docker.com/r/nvidia/cuda/tags?page=1&name=11.4.2-devel-ubuntu"
+LABEL description="this is a containerazation of the beast2 software, \
+build with beagle-lib with GPU support, utilizing nvidia CUDA docker images as substrate"
+
+
+MAINTAINER Tin_at_berkeley.edu
 ARG DEBIAN_FRONTEND=noninteractive
 #ARG TERM=vt100
 ARG TERM=dumb
