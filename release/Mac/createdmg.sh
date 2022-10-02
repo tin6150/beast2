@@ -3,7 +3,7 @@ cd release/Mac
 
 export source=BEAST
 export applicationName=BEAST
-export version=`perl -e 'while($s=<>) {if ($s=~/"version"/) {$s =~ /value="([^"]*)"/; print $1;}}' < ../../build.xml`
+export version=`perl -e 'while($s=<>) {if ($s=~/version=/) {$s =~ /version="([^"]*)"/; print $1;exit(0);}}' < ../../version.xml`
 export title="BEAST v${version}"
 export size=1g
 export backgroundPictureName=install.png
@@ -21,6 +21,7 @@ hdiutil create -srcfolder "${source}" -volname "${title}" -fs HFS+ \
 
 export device=$(hdiutil attach -readwrite -noverify -noautoopen "pack.temp.dmg" | \
          egrep '^/dev/' | sed 1q | awk '{print $1}')
+
 echo "Attach device : ${device}"
 
 echo '
