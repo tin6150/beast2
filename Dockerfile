@@ -106,8 +106,9 @@ RUN  cd / \
   && echo  "Dockerfile 2022.1002.1040"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "Grand Finale for Dockerfile"
 
-ENV DBG_CONTAINER_VER  "Dockerfile 2022.1002.1040"
-ENV DBG_DOCKERFILE Dockerfile
+ENV DBG_DOCKERFILE 		Dockerfile
+ENV DBG_CONTAINER_VER   "Dockerfile 2022.1002.1040"
+ENV DBG_CONTAINER_INFO  "see /opt/gitrepo/install*log for build version eg OpenCL=No"
 
 
 ENV JAVA_HOME=/usr/bin
