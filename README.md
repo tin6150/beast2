@@ -1,3 +1,26 @@
+
+Containerazation of BEAST 2
+===========================
+
+(Original README below this section)
+
+To run BEAST 2 via singularity container in HPC node, perform:
+
+```{bash}
+singularity pull --name beast2.6.4-beagle.sif  docker://ghcr.io/tin6150/beast2:dock264-beagle
+singularity pull --name beast2.6.4-noOCL.sif   docker://ghcr.io/tin6150/beast2:dock264-noOCL
+
+./beast2.6.4-noOCL.sif -beagle_CPU testHKY.xml
+
+# GPU need additional singularity flag, thus run as:
+singularity exec --nv ./beast2.6.4-noOCL.sif /usr/bin/java -Dlauncher.wait.for.exit=true -Xms256m -Xmx8g -Duser.language=en -cp /opt/gitrepo/beast/lib/launcher.jar beast.app.beastapp.BeastLauncher -beagle_info
+
+```
+
+
+(Original README follows)
+
+
 BEAST 2
 =======
 

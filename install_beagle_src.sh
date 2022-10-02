@@ -30,7 +30,7 @@ cd build
 #xxmkdir -p /opt/libbeagle
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME ..
 #cmake -DCMAKE_INSTALL_PREFIX:PATH=/opt/libbeagle ..
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local -DBUILD_CUDA=ON -DBUILD_OPENCL=OFF -DBUILD_JNI=ON ..
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local -DBUILD_CUDA=ON -DBUILD_OPENCL=ON -DBUILD_JNI=ON ..
 make install
 echo $?
 

@@ -1,0 +1,8 @@
+
+[[ -d /global/scratch/users/${USER}/cacheDir ]] && export cacheDir=/global/scratch/users/${USER}/cacheDir
+[[ -d $cacheDir ]] && export SINGULARITY_CACHEDIR=$cacheDir
+[[ -d $cacheDir ]] && export SINGULARITY_TMPDIR=$cacheDir
+[[ -d $cacheDir ]] && export SINGULARITY_WORKDIR=$cacheDir
+
+cd /global/home/groups/consultsw/sl-7.x86_64/modules/beast2/2.6.4
+singularity pull --name beast2.6.4-noOCL.sif  docker://ghcr.io/tin6150/beast2:dock264-noOCL
