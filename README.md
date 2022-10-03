@@ -7,13 +7,21 @@ Containerazation of BEAST 2
 To run BEAST 2 via singularity container in HPC node, perform:
 
 ```{bash}
+# Make and CD to a ImgDir to store the container image
 singularity pull --name beast2.6.4-beagle.sif  docker://ghcr.io/tin6150/beast2:dock264-beagle
 singularity pull --name beast2.6.4-noOCL.sif   docker://ghcr.io/tin6150/beast2:dock264-noOCL
 
-./beast2.6.4-noOCL.sif -beagle_CPU testHKY.xml
+./beast2.6.4-beagle.sif -java       testHKY.xml   # 4s/Msamples
+./beast2.6.4-beagle.sif -beagle_CPU testHKY.xml   # 2s/Msamples
 
-# GPU need additional singularity flag, thus run as:
-singularity exec --nv ./beast2.6.4-noOCL.sif /usr/bin/java -Dlauncher.wait.for.exit=true -Xms256m -Xmx8g -Duser.language=en -cp /opt/gitrepo/beast/lib/launcher.jar beast.app.beastapp.BeastLauncher -beagle_info
+
+# GPU need additional singularity flag, thus need to run as below, which get 28s/Msamples:
+singularity exec --nv $ImgDir/beast2.6.4-beagle.sif /usr/bin/java -Dlauncher.wait.for.exit=true -Xms256m -Xmx8g -Duser.language=en -cp /opt/gitrepo/beast/lib/launcher.jar beast.app.beastapp.BeastLauncher -beagle_GPU testHKY.xml
+
+# To ensure beagle see GPU on the machine, run this test:
+singularity exec --nv $ImgDir/beast2.6.4-beagle.sif /usr/bin/java -Dlauncher.wait.for.exit=true -Xms256m -Xmx8g -Duser.language=en -cp /opt/gitrepo/beast/lib/launcher.jar beast.app.beastapp.BeastLauncher -beagle_info
+
+
 
 ```
 
