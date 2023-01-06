@@ -21,6 +21,9 @@ singularity exec --nv $ImgDir/beast2.6.4-beagle.sif /usr/bin/java -Dlauncher.wai
 # To ensure beagle see GPU on the machine, run this test:
 singularity exec --nv $ImgDir/beast2.6.4-beagle.sif /usr/bin/java -Dlauncher.wait.for.exit=true -Xms256m -Xmx8g -Duser.language=en -cp /opt/gitrepo/beast/lib/launcher.jar beast.app.beastapp.BeastLauncher -beagle_info
 
+# Note that beast2/examples/test*xml files are tied to the beast version they were written for,
+# there are things like java classes path embeded in them.
+# if get java class not found error or the like, go to the original source and fetch examples from branch 2.6.6
 
 
 ```
