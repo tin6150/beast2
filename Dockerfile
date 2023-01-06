@@ -60,7 +60,6 @@ COPY .              /opt/gitrepo/container/
 
 RUN echo  ''  ;\
     touch _TOP_DIR_OF_CONTAINER_  ;\
-    echo "begining docker build process at " | tee -a _TOP_DIR_OF_CONTAINER_  ;\
     date | tee -a       _TOP_DIR_OF_CONTAINER_ ;\
     export TERM=dumb      ;\
     export NO_COLOR=TRUE  ;\
@@ -85,7 +84,6 @@ RUN echo  ''  ;\
 
 RUN echo  ''  ;\
     touch _TOP_DIR_OF_CONTAINER_  ;\
-    echo "begining docker build process at " | tee -a _TOP_DIR_OF_CONTAINER_  ;\
     date | tee -a       _TOP_DIR_OF_CONTAINER_ ;\
     export TERM=dumb      ;\
     export NO_COLOR=TRUE  ;\
@@ -106,16 +104,16 @@ RUN echo  ''  ;\
     cd /    ;\
     echo ""
 
+ENV DBG_DOCKERFILE 		Dockerfile
+ENV DBG_CONTAINER_VER   "Dockerfile 2023.0105.htop"
+ENV DBG_CONTAINER_INFO  "see /opt/gitrepo/install*log for build version eg OpenCL=No"
+
 RUN  cd / \
   && touch _TOP_DIR_OF_CONTAINER_  \
   && echo  "--------" >> _TOP_DIR_OF_CONTAINER_   \
   && TZ=PST8PDT date  >> _TOP_DIR_OF_CONTAINER_   \
-  && echo  "Dockerfile 2022.1002.1040"   >> _TOP_DIR_OF_CONTAINER_   \
+  && echo  "$DBG_CONTAINER_VER"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "Grand Finale for Dockerfile"
-
-ENV DBG_DOCKERFILE 		Dockerfile
-ENV DBG_CONTAINER_VER   "Dockerfile 2022.1002.1040"
-ENV DBG_CONTAINER_INFO  "see /opt/gitrepo/install*log for build version eg OpenCL=No"
 
 
 ENV JAVA_HOME=/usr/bin

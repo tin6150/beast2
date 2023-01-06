@@ -19,6 +19,8 @@ apt-get -y --quiet install figtree bali-phy
 echo $?
 apt-get -y --quiet install mrbayes mrbayes-doc mrbayes-mpi 
 echo $?
+apt-get -y --quiet install htop cpupower-gui
+echo $?
 
 #### install beast ####
 
