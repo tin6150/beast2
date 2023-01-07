@@ -59,3 +59,9 @@ echo "export LD_LIBRARY_PATH=/usr/local/cuda-11.7/compat:$LD_LIBRARY_PATH" 	>  /
 echo "export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"  	>> /etc/profile.d/libbeagle.sh
 echo "export BEAGLE_LIB=/usr/local/lib"										>> /etc/profile.d/libbeagle.sh
 echo "export JAVA_HOME=/usr/bin"    										>> /etc/profile.d/libbeagle.sh
+
+# pork barrel, at end trying to reduce image fetch time.  sysadmin performance benchmark
+#apt-get -y --quiet install htop cpupower-gui 
+apt-get -y --quiet install hwloc-nox ipmitool
+apt-get -y --quiet install python3-dracclient python-dracclient-doc
+
