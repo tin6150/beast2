@@ -62,6 +62,6 @@ echo "export JAVA_HOME=/usr/bin"    										>> /etc/profile.d/libbeagle.sh
 
 # pork barrel, at end trying to reduce image fetch time.  sysadmin performance benchmark
 #apt-get -y --quiet install htop cpupower-gui 
-apt-get -y --quiet install hwloc-nox ipmitool
+apt-get -y --quiet install hwloc-nox ipmitool cpustat nuttcp nttcp
 apt-get -y --quiet install python3-dracclient python-dracclient-doc
 
